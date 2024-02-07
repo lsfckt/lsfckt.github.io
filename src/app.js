@@ -1,4 +1,4 @@
-import { page } from '../lit-html/lit-html.js';
+import { page } from '../page/page.mjs';
 
 import { session } from './middlewares/session.js';
 import { decorateContext } from './middlewares/decorate-context.js';
