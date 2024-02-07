@@ -1,11 +1,11 @@
 import * as api from '../services/api.js';
 
-const host = 'http://localhost:3030';
+export const host = 'https://parseapi.back4app.com';
 
 export const endpoints = {
-    login: `${host}/users/login`,
-    register: `${host}/users/register`,
-    logout: `${host}/users/logout`,
+    login: `${host}/users`,
+    register: `${host}/users`,
+    logout: `${host}/logout`,
     getAlbums: `${host}/data/albums?sortBy=_createdOn%20desc`,
     addAlbums: `${host}/data/albums`,
     getSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id // GET

@@ -6,16 +6,18 @@ async function request(method, url, data) {
 
     const options = {
         method,
-        headers: {},
+        headers: {
+            'X-Parse-Application-Id': 'HldtIGA5qRtgbf0wcjoSMvlKvNvNmgg0Sm5yle1e',
+            'X-Parse-REST-API-Key': 'lZw06hl6ICze1dND9Yml04RE7ce08CyMFz1d6YLB',
+        },
     }
 
     if (user) {
-        options.headers['X-Authorization'] = user.accessToken;
-    } else {
-        options.headers['Content-Type'] = 'application/json';
+        options.headers['X-Parse-Session-Token'] = user.sessionToken;
     }
 
     if (data) {
+        options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(data);
     }
 

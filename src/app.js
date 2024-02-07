@@ -11,8 +11,6 @@ import { dashboardPage } from './views/dashboard-page.js';
 import { newAlbumPage } from './views/adding-new-album-page.js';
 import { detailsPage } from './views/album-details.js';
 
-export const host = 'http://localhost:3030';
-
 page(session);
 page(navBarView);
 page(decorateContext);

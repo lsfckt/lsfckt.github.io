@@ -1,8 +1,8 @@
 import { endpoints } from "./data.js";
 import * as api from '../services/api.js';
 
-export async function fetchLogin(data) {
-    return api.post(endpoints.login, data);
+export async function fetchLogin() {
+    return api.get(endpoints.login);
 }
 
 export async function fetchRegister(data) {
@@ -10,5 +10,5 @@ export async function fetchRegister(data) {
 }
 
 export async function fetchLogout() {
-    return api.get('/users/logout');
+    return api.post(endpoints.logout);
 }
