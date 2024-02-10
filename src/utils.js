@@ -7,7 +7,11 @@ export function getFormData(target) {
     const repass = formData.get('repass');
     const title = formData.get('title');
     const topicEl = formData.get('topic');
-    const topicText = topicEl.textContent;
+
+    let topicText;
+
+    topicEl ? topicText = topicEl.innerText : topicText = undefined;
+
 
     // const data = Object.fromEntries(formData);
 
