@@ -191,7 +191,9 @@ export async function editorPage(ctx) {
     async function onCreate(e) {
         e.preventDefault();
 
-        const { title, topic } = getFormData(e.target);
+        const data = getFormData(e.target);
+        const title = data.title;
+        const topic = data['topic'];
 
         if (!title || !topic) {
             alert('All fields are required! Please try again.');
