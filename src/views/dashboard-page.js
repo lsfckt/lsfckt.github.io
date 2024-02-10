@@ -1,6 +1,6 @@
 import { html } from '../../lit-html/lit-html.js';
 
-import { fetchGetAllAlbums } from '../services/data.js';
+// import { fetchGetAllAlbums } from '../services/data.js';
 
 const dashboardTemp = (albums) => html`
 <section id="dashboard">
@@ -27,7 +27,7 @@ const dashboardTemp = (albums) => html`
 </section>`;
 
 export async function dashboardPage(ctx) {
-  const albums = await fetchGetAllAlbums();
+  // const albums = await fetchGetAllAlbums();
 
   ctx.render(dashboardTemp(albums));
 }
