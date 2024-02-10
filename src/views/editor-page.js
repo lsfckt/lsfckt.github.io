@@ -193,7 +193,7 @@ export async function editorPage(ctx) {
 
         const data = getFormData(e.target);
         const title = data.title;
-        const topic = data['topic'];
+        const topic = data['topic'].innerText;
 
         if (!title || !topic) {
             alert('All fields are required! Please try again.');
