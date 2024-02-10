@@ -17,7 +17,7 @@ export const endpoints = {
 }
 
 export async function createQuiz(data) {
-    return api.post(endpoints.createQuiz(data));
+    return api.post(endpoints.createQuiz, data);
 }
 
 export async function fetchAddingNewAlbum(data) {

@@ -191,15 +191,15 @@ export async function editorPage(ctx) {
     async function onCreate(e) {
         e.preventDefault();
 
-        const data = getFormData(e.target);
+        const { title, topic } = getFormData(e.target);
 
-        if (!data.title || !data.topic) {
+        if (!title || !topic) {
             alert('All fields are required! Please try again.');
             return;
         }
 
-        await createQuiz(data);
-        
+        await createQuiz({ title, topic });
+
         try {
             ctx.page.redirect('/browse');
         } catch (error) {
