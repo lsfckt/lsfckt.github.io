@@ -1,27 +1,9 @@
 export function getFormData(target) {
 
     const formData = new FormData(target);
+    const data = Object.fromEntries(formData);
 
-    const email = formData.get('email');
-    const password = formData.get('password');
-    const repass = formData.get('repass');
-    const title = formData.get('title');
-    const topicEl = formData.get('topic');
-
-    let topicText;
-
-    topicEl ? topicText = topicEl.selectedOption[0] : topicText = undefined;
-
-
-    // const data = Object.fromEntries(formData);
-
-    return {
-        email,
-        password,
-        repass,
-        title,
-        topicText
-    }
+    return data;
 }
 
 export function setUser(data) {
