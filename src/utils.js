@@ -10,7 +10,7 @@ export function getFormData(target) {
 
     let topicText;
 
-    topicEl ? topicText = topicEl.innerText : topicText = undefined;
+    topicEl ? topicText = topicEl.selectedOption[0] : topicText = undefined;
 
 
     // const data = Object.fromEntries(formData);
