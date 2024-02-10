@@ -15,10 +15,9 @@ async function request(method, url, data) {
         options.headers['user-token'] = user["user-token"];
     }
 
-    // if (data) {
-    //     options.headers['Content-Type'] = 'application/json';
-    //     options.body = JSON.stringify(data);
-    // }
+    if (data) {
+        options.body = JSON.stringify(data);
+    }
 
     try {
 

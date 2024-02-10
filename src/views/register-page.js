@@ -44,7 +44,7 @@ export function regPage(ctx) {
             return;
         }
 
-        const res = await fetchRegister({email, password});
+        const res = await fetchRegister({ email, password });
 
         try {
             setUser(res);
