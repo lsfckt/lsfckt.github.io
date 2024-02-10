@@ -1,6 +1,6 @@
-import { html } from '../../lit-html/lit-html.js';
+import { html, nothing } from '../../lit-html/lit-html.js';
 
-const homeTemp = () => html`
+const homeTemp = (user) => html`
 <section id="welcome">
 
 <div class="hero layout">
@@ -8,7 +8,8 @@ const homeTemp = () => html`
     <div class="glass welcome">
         <h1>Welcome to Quiz Fever!</h1>
         <p>Home to 157 quizes in 12 topics. <a href="/browse">Browse all quizes</a>.</p>
-        <a class="action cta" href="/login">Sign in to create a quiz</a>
+        ${!user ? html`<a class="action cta" href="/login">Sign in to create a quiz</a>` : nothing}
+        
     </div>
 </div>
 
@@ -38,5 +39,7 @@ const homeTemp = () => html`
 </section>`;
 
 export function homePage(ctx) {
-    ctx.render(homeTemp());
+    const user = ctx.user;
+
+    ctx.render(homeTemp(user));
 }

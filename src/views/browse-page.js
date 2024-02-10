@@ -1,8 +1,8 @@
-import { html } from '../../lit-html/lit-html.js';
+import { html, nothing } from '../../lit-html/lit-html.js';
 
-// import { fetchGetAllAlbums } from '../services/data.js';
+import { browse } from '../services/data.js';
 
-const browseTemp = () => html`
+const browseTemp = (data) => html`
 <section id="browse">
                 <header class="pad-large">
                     <form class="browse-filter">
@@ -19,56 +19,31 @@ const browseTemp = () => html`
                 </header>
 
                 <div class="pad-large alt-page">
-
-                    <article class="preview layout">
+                ${data ?
+        data.map((quiz) => html`
+                <article class="preview layout">
                         <div class="right-col">
                             <a class="action cta" href="#">View Quiz</a>
                         </div>
                         <div class="left-col">
-                            <h3><a class="quiz-title-link" href="#">Extensible Markup Language</a></h3>
-                            <span class="quiz-topic">Topic: Languages</span>
+                            <h3><a class="quiz-title-link" href="#">${quiz.title}</a></h3>
+                            <span class="quiz-topic">Topic: ${quiz.topic}</span>
                             <div class="quiz-meta">
                                 <span>15 questions</span>
                                 <span>|</span>
                                 <span>Taken 54 times</span>
                             </div>
                         </div>
-                    </article>
-
-                    <article class="preview layout">
-                        <div class="right-col">
-                            <a class="action cta" href="#">View Quiz</a>
-                        </div>
-                        <div class="left-col">
-                            <h3><a class="quiz-title-link" href="#">RISC Architecture</a></h3>
-                            <span class="quiz-topic">Topic: Hardware</span>
-                            <div class="quiz-meta">
-                                <span>10 questions</span>
-                                <span>|</span>
-                                <span>Taken 107 times</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="preview layout">
-                        <div class="right-col">
-                            <a class="action cta" href="#">View Quiz</a>
-                        </div>
-                        <div class="left-col">
-                            <h3><a class="quiz-title-link" href="#">Webpack</a></h3>
-                            <span class="quiz-topic">Topic: Tools and Software</span>
-                            <div class="quiz-meta">
-                                <span>17 questions</span>
-                                <span>|</span>
-                                <span>Taken 189 times</span>
-                            </div>
-                        </div>
-                    </article>
-
+                    </article>`)
+        :
+        nothing}
+     
                 </div>
             </section>`;
 
 export async function browsePage(ctx) {
 
-    ctx.render(browseTemp());
+    const data = await browse();
+
+    ctx.render(browseTemp(data));
 }

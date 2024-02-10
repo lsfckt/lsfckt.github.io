@@ -7,7 +7,7 @@ export const endpoints = {
     register: `${host}/api/users/register`,
     logout: `${host}/api/users/logout`,
     createQuiz: `${host}/api/data/quiz`,
-    addAlbums: `${host}/data/albums`,
+    browse: `${host}/api/data/quiz`,
     getSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id // GET
     editSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id / PUT
     deleteAlbum: (id) => `${host}/data/albums/${id}`, // + id // DELETE
@@ -20,8 +20,8 @@ export async function createQuiz(data) {
     return api.post(endpoints.createQuiz, data);
 }
 
-export async function fetchAddingNewAlbum(data) {
-    return api.post(endpoints.addAlbums, data);
+export async function browse() {
+    return api.get(endpoints.browse);
 }
 
 export async function fetchAlbumDetails(id) {
