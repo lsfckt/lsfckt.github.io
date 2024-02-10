@@ -1,12 +1,12 @@
 import * as api from '../services/api.js';
 
-export const host = 'https://parseapi.back4app.com';
+export const host = 'https://virilecorn.backendless.app';
 
 export const endpoints = {
-    login: `${host}/login`,
-    register: `${host}/users`,
-    logout: `${host}/logout`,
-    createQuiz: `${host}/classes/Quiz`,
+    login: `${host}/api/users/login`,
+    register: `${host}/api/users/register`,
+    logout: `${host}/api/users/logout`,
+    createQuiz: `${host}/api/data/quiz`,
     addAlbums: `${host}/data/albums`,
     getSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id // GET
     editSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id / PUT

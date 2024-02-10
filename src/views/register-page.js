@@ -34,22 +34,22 @@ export function regPage(ctx) {
     async function onReg(e) {
         e.preventDefault();
 
-        const userData = getFormData(e.target);
+        const { email, password, repass } = getFormData(e.target);
 
-        if (!userData.email || !userData.password || !userData.repass) {
+        if (!email || !password || !repass) {
             alert('All fields are required! Please try again.');
             return;
-        } else if (userData.password !== userData.repass) {
+        } else if (password !== repass) {
             alert('Both passwords must match! Please try again.');
             return;
         }
 
-        const res = await fetchRegister(userData);
+        const res = await fetchRegister({email, password});
 
         try {
             setUser(res);
             ctx.page.redirect('/');
-            
+
             return res;
         } catch (error) {
             alert(error.message);

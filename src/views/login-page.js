@@ -32,9 +32,9 @@ export async function loginPage(ctx) {
   async function onLogin(e) {
     e.preventDefault();
 
-    const userData = getFormData(e.target);
+    const { email, password } = getFormData(e.target);
 
-    if (!userData.email || !userData.password) {
+    if (!email || !password) {
       alert('All fields are required! Please try again.');
       return;
     }
@@ -42,7 +42,7 @@ export async function loginPage(ctx) {
 
     try {
 
-      const res = await fetchLogin(userData.name, userData.password);
+      const res = await fetchLogin({ login: email, password, });
       setUser(res);
       ctx.page.redirect('/');
 
