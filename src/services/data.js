@@ -3,7 +3,7 @@ import * as api from '../services/api.js';
 export const host = 'https://parseapi.back4app.com';
 
 export const endpoints = {
-    login: `${host}/users`,
+    login: `${host}/login`,
     register: `${host}/users`,
     logout: `${host}/logout`,
     createQuiz: `${host}/classes/Quiz`,
