@@ -42,7 +42,7 @@ export async function loginPage(ctx) {
 
     try {
 
-      const res = await fetchLogin();
+      const res = await fetchLogin(userData.name, userData.password);
       setUser(res);
       ctx.page.redirect('/');
 
