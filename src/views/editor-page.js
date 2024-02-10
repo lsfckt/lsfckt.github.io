@@ -1,6 +1,6 @@
 import { html } from '../../lit-html/lit-html.js';
 
-import { fetchAddingNewAlbum } from '../services/data.js';
+import { createQuiz } from '../services/data.js';
 import { getFormData } from '../utils.js';
 
 const editorTemp = (onCreate) => html`
@@ -11,7 +11,7 @@ const editorTemp = (onCreate) => html`
 </header>
 
 <div class="pad-large alt-page">
-    <form>
+    <form @submit=${onCreate}>
         <label class="editor-label layout">
             <span class="label-col">Title:</span>
             <input class="input i-med" type="text" name="title"></label>
@@ -193,12 +193,12 @@ export async function editorPage(ctx) {
 
         const data = getFormData(e.target);
 
-        if (!data.singer || !data.album || !data.imageUrl || !data.release || !data.label || !data.sales) {
+        if (!data.title || !data.topic) {
             alert('All fields are required! Please try again.');
             return;
         }
 
-        await fetchAddingNewAlbum(data);
+        await createQuiz(data);
         
         try {
             ctx.page.redirect('/browse');

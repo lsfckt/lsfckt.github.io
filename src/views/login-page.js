@@ -41,7 +41,7 @@ export async function loginPage(ctx) {
 
 
     try {
-      debugger;
+
       const res = await fetchLogin();
       setUser(res);
       ctx.page.redirect('/');

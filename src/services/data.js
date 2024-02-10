@@ -6,7 +6,7 @@ export const endpoints = {
     login: `${host}/users`,
     register: `${host}/users`,
     logout: `${host}/logout`,
-    getAlbums: `${host}/data/albums?sortBy=_createdOn%20desc`,
+    createQuiz: `${host}/classes/Quiz`,
     addAlbums: `${host}/data/albums`,
     getSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id // GET
     editSingleAlbum: (id) => `${host}/data/albums/${id}`, // + id / PUT
@@ -16,8 +16,8 @@ export const endpoints = {
     getAlbumLikesForSpecificUser: (albumId, userId) => `${host}/data/likes?where=albumId%3D%22${albumId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
 }
 
-export async function fetchGetAllAlbums() {
-    return api.get(endpoints.getAlbums);
+export async function createQuiz(data) {
+    return api.post(endpoints.createQuiz(data));
 }
 
 export async function fetchAddingNewAlbum(data) {
