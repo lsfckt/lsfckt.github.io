@@ -115,7 +115,7 @@ const editorTemp = (onCreate, addQuestion, answerCounter, questionCounter, onQue
 </section>`;
 
 export function editorPage(ctx) {
-    ctx.render(editorTemp(onCreate, addQuestion, answerCounterquestionCounter, onQuestion, addAnswer));
+    ctx.render(editorTemp(onCreate, addQuestion, answerCounter, questionCounter, onQuestion, addAnswer));
     const questionDiv = document.querySelector('#questions-div');
     let questions;
 
