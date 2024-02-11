@@ -194,14 +194,14 @@ export async function editorPage(ctx) {
         const data = getFormData(e.target);
         const title = data.title;
         const optionEl = document.querySelector('select').selectedOptions[0];
-        const option = optionEl.innerText;
+        const topic = optionEl.innerText;
 
-        if (!title || option === "All categories") {
+        if (!title || topic === "All categories") {
             alert('All fields are required! Please try again.');
             return;
         }
 
-        await createQuiz({ title, option });
+        await createQuiz({ title, topic });
 
         try {
             ctx.page.redirect('/browse');
