@@ -18,7 +18,7 @@ const answerTemp = (answerCounter) => html`
     <button class="input submit action"><i class="fas fa-trash-alt"></i></button>
 </div>`
 
-const questionTemp = (questionCounter) => html`
+const questionTemp = (questionCounter, onQuestion, addAnswer) => html`
     <article class="editor-question">
         <div class="layout">
             <div class="question-control">
@@ -70,7 +70,7 @@ const questionTemp = (questionCounter) => html`
         </form>
     </article>`
 
-const editorTemp = (onCreate, onQuestion, addQuestion) => html`
+const editorTemp = (onCreate, addQuestion, answerCounter, questionCounter, onQuestion, addAnswer) => html`
 <section id="editor">
 
 <header class="pad-large">
@@ -115,7 +115,7 @@ const editorTemp = (onCreate, onQuestion, addQuestion) => html`
 </section>`;
 
 export function editorPage(ctx) {
-    ctx.render(editorTemp(onCreate, onQuestion, addQuestion));
+    ctx.render(editorTemp(onCreate, addQuestion, answerCounterquestionCounter, onQuestion, addAnswer));
     const questionDiv = document.querySelector('#questions-div');
     let questions;
 
@@ -134,7 +134,7 @@ export function editorPage(ctx) {
 
         questionCounter++;
 
-        render(questionTemp(questionCounter, addAnswer), questionDiv)
+        render(questionTemp(questionCounter, addAnswer, questionTemp), questionDiv)
     }
 
     function onQuestion(e) {
