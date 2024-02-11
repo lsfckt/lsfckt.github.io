@@ -192,10 +192,11 @@ export async function editorPage(ctx) {
         e.preventDefault();
 
         const data = getFormData(e.target);
+        const title = data.title;
         const optionEl = document.querySelector('select').selectedOptions[0];
         const option = optionEl.innerText;
 
-        if (!data.title || option === "All categories") {
+        if (!title || option === "All categories") {
             alert('All fields are required! Please try again.');
             return;
         }
